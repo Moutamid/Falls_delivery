@@ -27,12 +27,15 @@ import java.net.URL;
 public class Constants {
     static Dialog dialog;
     public static final String USER = "USER";
+    public static final String PASS = "PASS";
     public static final String STASH_USER = "STASH_USER";
     public static final String RESTAURANT_CATEGORY = "RESTAURANT_CATEGORY";
     public static final String PHARMACY_CATEGORY = "PHARMACY_CATEGORY";
     public static final String PHARMACY = "PHARMACY";
     public static final String RESTAURANT = "RESTAURANT";
     public static final String TYPE = "TYPE";
+    public static final String CART = "CART";
+    public static final String ORDERS = "ORDERS";
 
     public static void initDialog(Context context) {
         dialog = new Dialog(context);
@@ -117,8 +120,8 @@ public class Constants {
         return db;
     }
 
-    public static StorageReference storageReference(String auth) {
-        StorageReference sr = FirebaseStorage.getInstance().getReference().child("fallsdelivery").child(auth);
+    public static StorageReference storageReference() {
+        StorageReference sr = FirebaseStorage.getInstance().getReference().child("fallsdelivery");
         return sr;
     }
 

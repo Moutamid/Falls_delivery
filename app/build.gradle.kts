@@ -36,6 +36,10 @@ android {
 dependencies {
     implementation(libs.stash)
     implementation(libs.glide)
+    implementation(libs.imagepicker)
+
+    implementation(libs.play.services.maps)
+    implementation(libs.play.services.location)
 
     implementation(platform("com.google.firebase:firebase-bom:33.4.0"))
     implementation("com.google.firebase:firebase-database")

@@ -23,6 +23,7 @@ import com.moutamid.fallsdelivery.utilis.Constants;
 import com.moutamid.fallsdelivery.R;
 import com.moutamid.fallsdelivery.models.ProductModel;
 import com.moutamid.fallsdelivery.utilis.Constants;
+import com.moutamid.fallsdelivery.utilis.ProductListener;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -31,11 +32,13 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     Context context;
     ArrayList<ProductModel> list;
     ArrayList<ProductModel> listAll;
+    ProductListener productListener;
 
-    public ProductAdapter(Context context, ArrayList<ProductModel> list) {
+    public ProductAdapter(Context context, ArrayList<ProductModel> list, ProductListener productListener) {
         this.context = context;
         this.list = list;
         this.listAll = new ArrayList<>(list);
+        this.productListener = productListener;
     }
 
     @NonNull
@@ -47,12 +50,11 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     @Override
     public void onBindViewHolder(@NonNull ProductVH holder, int position) {
         ProductModel model = list.get(holder.getAdapterPosition());
-        holder.category.setText("Category: " + model.category);
         holder.price.setText("Price: $" + model.price);
         holder.name.setText(model.name);
-        holder.description.setText(model.description);
-
         Glide.with(context).load(model.image).into(holder.image);
+
+        holder.itemView.setOnClickListener(v -> productListener.onClick(model));
     }
 
     @Override
@@ -94,13 +96,11 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     };
 
     public static class ProductVH extends RecyclerView.ViewHolder {
-        TextView description, category, price, name;
+        TextView price, name;
         ImageView image;
 
         public ProductVH(@NonNull View itemView) {
             super(itemView);
-            description = itemView.findViewById(R.id.description);
-            category = itemView.findViewById(R.id.category);
             price = itemView.findViewById(R.id.price);
             name = itemView.findViewById(R.id.name);
             image = itemView.findViewById(R.id.image);

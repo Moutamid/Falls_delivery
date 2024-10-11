@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:name=".utilis.MyApp"
@@ -15,6 +17,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FallsDelivery"
         tools:targetApi="31">
+        <activity
+            android:name=".ui.PaymentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.OrderActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.CartActivity"
+            android:exported="false" />
         <activity
             android:name=".ui.ForgotPasswordActivity"
             android:exported="false" />

@@ -94,12 +94,12 @@ public class RestaurantFragment extends Fragment {
                         binding.noLayout.setVisibility(View.VISIBLE);
                     }
 
-                    adapter = new ProductAdapter(requireContext(), list);
+                    adapter = new ProductAdapter(requireContext(), list, model -> showDialog(model));
                     binding.productRC.setAdapter(adapter);
                 } else {
                     binding.productRC.setVisibility(View.GONE);
                     binding.noLayout.setVisibility(View.VISIBLE);
-                    adapter = new ProductAdapter(requireContext(), new ArrayList<>());
+                    adapter = new ProductAdapter(requireContext(), new ArrayList<>(), null);
                     binding.productRC.setAdapter(adapter);
                 }
             }
@@ -110,5 +110,10 @@ public class RestaurantFragment extends Fragment {
                 Toast.makeText(requireContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private void showDialog(ProductModel model) {
+        BottomSheet bottomSheet = new BottomSheet(model);
+        bottomSheet.show(getChildFragmentManager(), bottomSheet.getTag());
     }
 }
