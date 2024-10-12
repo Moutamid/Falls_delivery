@@ -27,6 +27,11 @@ android {
             )
         }
     }
+    packaging {
+        resources {
+            excludes += "META-INF/DEPENDENCIES"
+        }
+    }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -47,6 +52,12 @@ dependencies {
     implementation("com.google.firebase:firebase-storage")
     implementation("com.google.firebase:firebase-crashlytics")
     implementation("com.google.firebase:firebase-analytics")
+    implementation("com.google.firebase:firebase-messaging")
+
+    implementation(libs.google.api.client)
+    implementation(libs.google.auth.library.oauth2.http)
+
+    implementation(libs.volley)
 
     implementation(libs.appcompat)
     implementation(libs.material)

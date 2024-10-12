@@ -26,6 +26,7 @@ import java.net.URL;
 
 public class Constants {
     static Dialog dialog;
+    public static final String ADMIN_ID = "j7uU2MMbp7hkKJu8VstRCUsAi2X2";
     public static final String USER = "USER";
     public static final String PASS = "PASS";
     public static final String STASH_USER = "STASH_USER";

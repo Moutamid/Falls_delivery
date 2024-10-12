@@ -151,6 +151,7 @@ public class OrderActivity extends AppCompatActivity {
     private OrderModel getOrder() {
         OrderModel orderModel = new OrderModel();
         orderModel.uid = UUID.randomUUID().toString();
+        orderModel.userID = Constants.auth().getCurrentUser().getUid();
         orderModel.cartID = model.uid;
         orderModel.productModel = model.model;
         orderModel.quantity = model.count;

@@ -20,6 +20,7 @@ import com.github.dhaval2404.imagepicker.ImagePicker;
 import com.moutamid.fallsdelivery.R;
 import com.moutamid.fallsdelivery.databinding.ActivityPaymentBinding;
 import com.moutamid.fallsdelivery.models.OrderModel;
+import com.moutamid.fallsdelivery.notifications.FCMNotificationHelper;
 import com.moutamid.fallsdelivery.utilis.Constants;
 
 import java.text.SimpleDateFormat;
@@ -82,6 +83,8 @@ public class PaymentActivity extends AppCompatActivity {
                 }).addOnSuccessListener(unused -> {
                     Constants.databaseReference().child(Constants.CART).child(Constants.auth().getCurrentUser().getUid())
                             .child(orderModel.cartID).removeValue().addOnSuccessListener(unused1 -> {
+                                Constants.dismissDialog();
+                                new FCMNotificationHelper(this).sendNotification(Constants.ADMIN_ID, "NEW Order", "New order receive");
                                 Toast.makeText(this, "Order is confirmed", Toast.LENGTH_SHORT).show();
                                 getOnBackPressedDispatcher().onBackPressed();
                             });
