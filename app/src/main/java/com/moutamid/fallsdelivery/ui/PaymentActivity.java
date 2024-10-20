@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -30,7 +31,7 @@ import java.util.Locale;
 public class PaymentActivity extends AppCompatActivity {
     ActivityPaymentBinding binding;
     Uri image;
-
+    private static final String TAG = "PaymentActivity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -97,6 +98,7 @@ public class PaymentActivity extends AppCompatActivity {
         if (resultCode == RESULT_OK && data != null) {
             image = data.getData();
             String path = getRealPathFromURI(image);
+            Log.d(TAG, "onActivityResult: path " + path);
             binding.path.setText(path);
         }
     }

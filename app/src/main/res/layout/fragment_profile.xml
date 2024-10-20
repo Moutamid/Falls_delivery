@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:fillViewport="true"
+    tools:context=".fragment.ProfileFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+
+        <TextView
+            android:id="@+id/greeting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="43dp"
+            android:text="Welcome"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/orders"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/black2"
+            android:gravity="start|center"
+            android:layout_marginTop="10dp"
+            android:text="Current Orders"
+            app:cornerRadius="12dp"
+            app:icon="@drawable/truck_solid"
+            app:iconGravity="end" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/editProfile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/black2"
+            android:gravity="start|center"
+            android:text="Edit Profile"
+            app:cornerRadius="12dp"
+            app:icon="@drawable/user_pen_solid"
+            app:iconGravity="end" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/logout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/red"
+            android:gravity="start|center"
+            android:text="Logout"
+            app:cornerRadius="12dp"
+            app:icon="@drawable/right_from_bracket_solid"
+            app:iconGravity="end" />
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

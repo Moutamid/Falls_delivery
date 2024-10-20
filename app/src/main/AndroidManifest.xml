@@ -22,6 +22,15 @@
         android:theme="@style/Theme.FallsDelivery"
         tools:targetApi="31">
         <activity
+            android:name=".ui.OrderDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.CurrentOrdersActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.EditProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.PaymentActivity"
             android:exported="false" />
         <activity
@@ -54,7 +63,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
 
         <service
             android:name=".notifications.FirebaseMessagingService"

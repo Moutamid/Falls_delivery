@@ -19,6 +19,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.moutamid.fallsdelivery.databinding.ActivityMainBinding;
 import com.moutamid.fallsdelivery.fragment.PharmacyFragment;
+import com.moutamid.fallsdelivery.fragment.ProfileFragment;
 import com.moutamid.fallsdelivery.fragment.RestaurantFragment;
 import com.moutamid.fallsdelivery.ui.CartActivity;
 import com.moutamid.fallsdelivery.utilis.Constants;
@@ -41,6 +42,8 @@ public class MainActivity extends AppCompatActivity {
                     getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, new RestaurantFragment()).commit();
                 } else if (item.getItemId() == R.id.pharmacy) {
                     getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, new PharmacyFragment()).commit();
+                } else if (item.getItemId() == R.id.profile) {
+                    getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, new ProfileFragment()).commit();
                 }
                 return true;
             }

@@ -142,6 +142,7 @@ public class OrderActivity extends AppCompatActivity {
 
     private void confirmOrder() {
         OrderModel orderModel = getOrder();
+        Constants.dismissDialog();
         Stash.put(Constants.ORDERS, orderModel);
         Stash.clear(Constants.PASS);
         startActivity(new Intent(this, PaymentActivity.class));
